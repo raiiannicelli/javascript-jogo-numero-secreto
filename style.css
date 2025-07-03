@@ -1,6 +1,6 @@
 body {
-  background: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%);
-  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7f7f7;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -10,108 +10,111 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 32px;
+  gap: 24px;
   min-height: 40vh;
 }
 .menu-btn {
-  background: #ff7043;
-  color: #fff;
-  border: none;
-  border-radius: 32px;
-  padding: 22px 48px;
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: 1px;
+  background: #fff;
+  color: #222;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px 36px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   cursor: pointer;
-  margin: 0 0 0 0;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
+  margin: 0;
+  transition: background 0.18s, color 0.18s, border 0.18s;
   outline: none;
 }
 .menu-btn:hover, .menu-btn:focus {
-  background: #ff9800;
-  color: #fff;
-  transform: scale(1.06);
+  background: #f0f0f0;
+  color: #111;
+  border: 1.5px solid #bdbdbd;
 }
 .container {
-  max-width: 420px;
+  max-width: 400px;
   margin: 48px auto 0 auto;
-  background: #fffbe7;
-  border-radius: 24px;
-  padding: 40px 32px 32px 32px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 24px 24px 24px;
   text-align: center;
+  border: 1.5px solid #ececec;
 }
 h1 {
-  color: #ff7043;
+  color: #222;
   margin-bottom: 18px;
-  font-size: 2.1rem;
-  letter-spacing: 1px;
-  font-weight: 700;
+  font-size: 1.7rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
 }
 #description {
-  color: #ff9800;
-  margin-bottom: 24px;
-  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 20px;
+  font-size: 1.05rem;
 }
 #guess-form, #math-form {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   justify-content: center;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 #guess-input, #math-input {
-  width: 120px;
-  padding: 10px;
-  font-size: 1.1rem;
-  border: 2px solid #ff9800;
-  border-radius: 12px;
+  width: 110px;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
   outline: none;
-  transition: border 0.2s;
-  background: #fffbe7;
-  color: #ff7043;
+  transition: border 0.18s;
+  background: #fafafa;
+  color: #222;
 }
 #guess-input:focus, #math-input:focus {
-  border: 2px solid #ff7043;
+  border: 1.5px solid #bdbdbd;
 }
 button {
-  background: #ff7043;
-  color: #fff;
-  border: none;
-  border-radius: 12px;
-  padding: 10px 22px;
-  font-size: 1.08rem;
-  font-weight: 600;
+  background: #fff;
+  color: #222;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, transform 0.15s;
+  transition: background 0.18s, color 0.18s, border 0.18s;
 }
 button:hover, button:focus {
-  background: #ff9800;
-  color: #fff;
-  transform: scale(1.04);
+  background: #f0f0f0;
+  color: #111;
+  border: 1.5px solid #bdbdbd;
 }
 #feedback, #math-feedback {
   min-height: 24px;
-  color: #d84315;
-  font-weight: bold;
-  margin-bottom: 12px;
-  font-size: 1.08rem;
-  letter-spacing: 0.5px;
+  color: #b71c1c;
+  font-weight: 500;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
 }
 #restart-btn, #math-restart-btn {
-  margin-top: 14px;
-  background: #ff7043;
+  margin-top: 12px;
+  background: #fff;
   font-size: 1rem;
-  padding: 10px 22px;
-  border-radius: 12px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 1.5px solid #e0e0e0;
 }
 #restart-btn:hover, #math-restart-btn:hover {
-  background: #ff9800;
+  background: #f0f0f0;
+  border: 1.5px solid #bdbdbd;
 }
 
 section {
-  animation: fadeIn 0.5s;
+  animation: fadeIn 0.4s;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
