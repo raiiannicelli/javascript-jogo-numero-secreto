@@ -7,7 +7,7 @@ body {
 }
 .menu-central {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 24px;
@@ -26,6 +26,8 @@ body {
   margin: 0;
   transition: background 0.18s, color 0.18s, border 0.18s;
   outline: none;
+  min-width: 180px;
+  text-align: center;
 }
 .menu-btn:hover, .menu-btn:focus {
   background: #f0f0f0;
