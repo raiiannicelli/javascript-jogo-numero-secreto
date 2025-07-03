@@ -7,11 +7,13 @@ body {
 }
 .menu-central {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  min-height: 40vh;
+  gap: 18px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 0 12px 0;
 }
 .menu-btn {
   background: #fff;
@@ -42,6 +44,11 @@ body {
   padding: 32px 24px 24px 24px;
   text-align: center;
   border: 1.5px solid #ececec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 420px;
 }
 h1 {
   color: #222;
@@ -54,6 +61,15 @@ h1 {
   color: #444;
   margin-bottom: 20px;
   font-size: 1.05rem;
+}
+
+#menu-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
 }
 #guess-form, #math-form {
   display: flex;
