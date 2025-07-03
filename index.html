@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jogo do Número Secreto</title>
+  <title>Jogos arcade</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="container">
     <section id="menu-section">
-      <h1>Escolha o Jogo</h1>
+      <h1>Projeto 2 - Jogos</h1>
       <div class="menu-central">
         <button id="menu-secret" class="menu-btn">Número Secreto</button>
         <button id="menu-math" class="menu-btn">Adivinhação Matemática</button>
+        <button id="menu-media" class="menu-btn">Cálculo da Média</button>
       </div>
     </section>
     <section id="secret-section" style="display:none;">
@@ -34,6 +35,16 @@
       </form>
       <p id="math-feedback"></p>
       <button id="math-restart-btn" style="display:none;">Jogar Novamente</button>
+    </section>
+    <section id="media-section" style="display:none;">
+      <h1>Jogo de Cálculo da Média</h1>
+      <p id="media-description">Digite os números separados por vírgula para calcular a média.</p>
+      <form id="media-form" autocomplete="off">
+        <input type="text" id="media-input" required placeholder="Ex: 7, 8, 10">
+        <button type="submit">Calcular Média</button>
+      </form>
+      <p id="media-feedback"></p>
+      <button id="media-restart-btn" style="display:none;">Jogar Novamente</button>
     </section>
   </main>
   <script src="script.js"></script>

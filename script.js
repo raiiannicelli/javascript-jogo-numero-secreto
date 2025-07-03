@@ -6,16 +6,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const menuSection = document.getElementById('menu-section');
   const menuSecret = document.getElementById('menu-secret');
   const menuMath = document.getElementById('menu-math');
+  const menuMedia = document.getElementById('menu-media');
   const secretSection = document.getElementById('secret-section');
   const mathSection = document.getElementById('math-section');
+  const mediaSection = document.getElementById('media-section');
 
   function showSection(section) {
     menuSection.style.display = 'none';
     secretSection.style.display = section === 'secret' ? '' : 'none';
     mathSection.style.display = section === 'math' ? '' : 'none';
+    mediaSection.style.display = section === 'media' ? '' : 'none';
   }
   menuSecret.addEventListener('click', function () { showSection('secret'); });
   menuMath.addEventListener('click', function () { showSection('math'); });
+  menuMedia.addEventListener('click', function () { showSection('media'); });
 
   // --- Jogo do Número Secreto ---
   const min = 1;
@@ -67,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function voltarMenu() {
     secretSection.style.display = 'none';
     mathSection.style.display = 'none';
+    mediaSection.style.display = 'none';
     menuSection.style.display = '';
   }
   // Adiciona botão de voltar ao menu nas sessões de jogo
@@ -76,6 +81,42 @@ document.addEventListener('DOMContentLoaded', function () {
   btnVoltarSecret.style.marginTop = '18px';
   btnVoltarSecret.onclick = voltarMenu;
   secretSection.appendChild(btnVoltarSecret);
+  // --- Jogo de Cálculo da Média ---
+  const mediaForm = document.getElementById('media-form');
+  const mediaInput = document.getElementById('media-input');
+  const mediaFeedback = document.getElementById('media-feedback');
+  const mediaRestartBtn = document.getElementById('media-restart-btn');
+  let mediaTries = 0;
+
+  function resetMediaGame() {
+    mediaInput.value = '';
+    mediaFeedback.textContent = '';
+    mediaInput.disabled = false;
+    mediaRestartBtn.style.display = 'none';
+    mediaForm.style.display = 'flex';
+    mediaTries = 0;
+  }
+  function handleMediaCalc(event) {
+    event.preventDefault();
+    const values = mediaInput.value.split(',').map(v => v.trim()).filter(v => v !== '');
+    const nums = values.map(Number);
+    mediaTries++;
+    if (nums.length === 0 || nums.some(isNaN)) {
+      mediaFeedback.textContent = 'Digite apenas números separados por vírgula.';
+      return;
+    }
+    const soma = nums.reduce((acc, n) => acc + n, 0);
+    const media = soma / nums.length;
+    mediaFeedback.textContent = `A média é ${media.toFixed(2)}. (${mediaTries} tentativa${mediaTries > 1 ? 's' : ''})`;
+    mediaInput.disabled = true;
+    mediaRestartBtn.style.display = 'inline-block';
+    mediaForm.style.display = 'none';
+  }
+  if (mediaForm) {
+    mediaForm.addEventListener('submit', handleMediaCalc);
+    mediaRestartBtn.addEventListener('click', resetMediaGame);
+    resetMediaGame();
+  }
 
   // --- Jogo de Adivinhação Matemática ---
 
@@ -141,10 +182,18 @@ document.addEventListener('DOMContentLoaded', function () {
   btnVoltarMath.style.marginTop = '18px';
   btnVoltarMath.onclick = voltarMenu;
   mathSection.appendChild(btnVoltarMath);
+  // Botão voltar para o menu na sessão média
+  const btnVoltarMedia = document.createElement('button');
+  btnVoltarMedia.textContent = 'Voltar ao Menu';
+  btnVoltarMedia.className = 'menu-btn';
+  btnVoltarMedia.style.marginTop = '18px';
+  btnVoltarMedia.onclick = voltarMenu;
+  mediaSection.appendChild(btnVoltarMedia);
 
   // Exibe menu ao carregar
   menuSection.style.display = '';
   secretSection.style.display = 'none';
   mathSection.style.display = 'none';
+  mediaSection.style.display = 'none';
   generateMathQuestion();
 });
