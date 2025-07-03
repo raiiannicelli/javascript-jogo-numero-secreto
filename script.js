@@ -17,9 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
     mathSection.style.display = section === 'math' ? '' : 'none';
     mediaSection.style.display = section === 'media' ? '' : 'none';
   }
-  menuSecret.addEventListener('click', function () { showSection('secret'); });
-  menuMath.addEventListener('click', function () { showSection('math'); });
-  menuMedia.addEventListener('click', function () { showSection('media'); });
+  function iniciarJogoNumeroSecreto() {
+    showSection('secret');
+  }
+  function iniciarJogoMatematica() {
+    showSection('math');
+  }
+  function iniciarJogoMedia() {
+    showSection('media');
+  }
+  menuSecret.addEventListener('click', iniciarJogoNumeroSecreto);
+  menuMath.addEventListener('click', iniciarJogoMatematica);
+  menuMedia.addEventListener('click', iniciarJogoMedia);
 
   // --- Jogo do Número Secreto ---
   const min = 1;
