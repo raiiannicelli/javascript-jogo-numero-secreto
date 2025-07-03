@@ -2,31 +2,24 @@
 
 // Módulo do menu e navegação
 document.addEventListener('DOMContentLoaded', function () {
-  // Menu
+  // Menu Central
+  const menuSection = document.getElementById('menu-section');
   const menuSecret = document.getElementById('menu-secret');
   const menuMath = document.getElementById('menu-math');
   const secretSection = document.getElementById('secret-section');
   const mathSection = document.getElementById('math-section');
 
   function showSection(section) {
-    if (section === 'secret') {
-      secretSection.style.display = '';
-      mathSection.style.display = 'none';
-      menuSecret.classList.add('active');
-      menuMath.classList.remove('active');
-    } else {
-      secretSection.style.display = 'none';
-      mathSection.style.display = '';
-      menuSecret.classList.remove('active');
-      menuMath.classList.add('active');
-    }
+    menuSection.style.display = 'none';
+    secretSection.style.display = section === 'secret' ? '' : 'none';
+    mathSection.style.display = section === 'math' ? '' : 'none';
   }
   menuSecret.addEventListener('click', function () { showSection('secret'); });
   menuMath.addEventListener('click', function () { showSection('math'); });
 
   // --- Jogo do Número Secreto ---
   const min = 1;
-  const max = 100;
+  const max = 10;
   let secretNumber = generateSecretNumber();
   let attempts = 0;
   const guessForm = document.getElementById('guess-form');
@@ -69,7 +62,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   guessForm.addEventListener('submit', handleGuess);
   restartBtn.addEventListener('click', resetGame);
-  resetGame();
+
+  // Voltar ao menu ao terminar o jogo
+  function voltarMenu() {
+    secretSection.style.display = 'none';
+    mathSection.style.display = 'none';
+    menuSection.style.display = '';
+  }
+  // Adiciona botão de voltar ao menu nas sessões de jogo
+  const btnVoltarSecret = document.createElement('button');
+  btnVoltarSecret.textContent = 'Voltar ao Menu';
+  btnVoltarSecret.className = 'menu-btn';
+  btnVoltarSecret.style.marginTop = '18px';
+  btnVoltarSecret.onclick = voltarMenu;
+  secretSection.appendChild(btnVoltarSecret);
+
+  // --- Jogo de Adivinhação Matemática ---
 
   // --- Jogo de Adivinhação Matemática ---
   const mathForm = document.getElementById('math-form');
@@ -126,5 +134,17 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   mathForm.addEventListener('submit', handleMathGuess);
   mathRestartBtn.addEventListener('click', generateMathQuestion);
+  // Botão voltar para o menu na sessão matemática
+  const btnVoltarMath = document.createElement('button');
+  btnVoltarMath.textContent = 'Voltar ao Menu';
+  btnVoltarMath.className = 'menu-btn';
+  btnVoltarMath.style.marginTop = '18px';
+  btnVoltarMath.onclick = voltarMenu;
+  mathSection.appendChild(btnVoltarMath);
+
+  // Exibe menu ao carregar
+  menuSection.style.display = '';
+  secretSection.style.display = 'none';
+  mathSection.style.display = 'none';
   generateMathQuestion();
 });

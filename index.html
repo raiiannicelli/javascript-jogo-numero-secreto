@@ -7,16 +7,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <nav class="menu">
-    <button id="menu-secret" class="menu-btn active">Número Secreto</button>
-    <button id="menu-math" class="menu-btn">Adivinhação Matemática</button>
-  </nav>
   <main class="container">
-    <section id="secret-section">
+    <section id="menu-section">
+      <h1>Escolha o Jogo</h1>
+      <div class="menu-central">
+        <button id="menu-secret" class="menu-btn">Número Secreto</button>
+        <button id="menu-math" class="menu-btn">Adivinhação Matemática</button>
+      </div>
+    </section>
+    <section id="secret-section" style="display:none;">
       <h1>Jogo do Número Secreto</h1>
-      <p id="description">Tente adivinhar o número secreto entre <span id="min">1</span> e <span id="max">100</span>.</p>
+      <p id="description">Tente adivinhar o número secreto entre <span id="min">1</span> e <span id="max">10</span>.</p>
       <form id="guess-form" autocomplete="off">
-        <input type="number" id="guess-input" min="1" max="100" required placeholder="Seu palpite">
+        <input type="number" id="guess-input" min="1" max="10" required placeholder="Seu palpite">
         <button type="submit">Adivinhar</button>
       </form>
       <p id="feedback"></p>
